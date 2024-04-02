@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bh4h4y0idj3wr"]
 
 [ext_resource type="Texture2D" uid="uid://crkc0dg5o2j21" path="res://assets/sprites/Dragon.png" id="1_k4sqy"]
-[ext_resource type="Script" path="res://character.gd" id="1_s14v3"]
+[ext_resource type="Script" path="res://actors/character.gd" id="1_s14v3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwc2s"]
 bg_color = Color(0, 0, 0, 1)

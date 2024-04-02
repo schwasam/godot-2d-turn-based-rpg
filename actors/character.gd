@@ -8,8 +8,8 @@ class_name Character
 @export var current_hp: int = 25
 @export var max_hp: int = 25
 
-@export var combat_action: Array
-@export var opponent: Node
+@export var combat_actions: Array[CombatAction]
+@export var opponent: Character
 
 @onready var turn_manager: TurnManager = $"/root/BattleScene"
 @onready var health_bar: ProgressBar = %HealthBar
@@ -43,3 +43,11 @@ func _update_health_bar() -> void:
 
 func _on_character_begin_turn(character: Character) -> void:
 	pass
+
+func cast_combat_action(action: CombatAction) -> void:
+	if action.damage > 0:
+		opponent.take_damage(action.damage)
+	elif action.heal > 0:
+		heal(action.heal)
+
+	turn_manager.end_current_turn()
