@@ -1,10 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://q161ltxg1jxc"]
+[gd_scene load_steps=5 format=3 uid="uid://q161ltxg1jxc"]
 
+[ext_resource type="Script" path="res://turn_manager.gd" id="1_7omjr"]
+[ext_resource type="Texture2D" uid="uid://crkc0dg5o2j21" path="res://assets/sprites/Dragon.png" id="1_ksjl0"]
 [ext_resource type="PackedScene" uid="uid://bh4h4y0idj3wr" path="res://character.tscn" id="1_qwjae"]
+[ext_resource type="Texture2D" uid="uid://c3jqrx0duv35c" path="res://assets/sprites/Reptile.png" id="4_cheyf"]
 
 [node name="BattleScene" type="Node2D"]
+script = ExtResource("1_7omjr")
 
-[node name="Character" parent="." instance=ExtResource("1_qwjae")]
+[node name="Player" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_qwjae")]
+position = Vector2(-250, 0)
+is_player = true
+visual = ExtResource("1_ksjl0")
+flip_visual = false
+opponent = NodePath("../Enemy")
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_qwjae")]
+position = Vector2(250, 0)
+visual = ExtResource("4_cheyf")
+opponent = NodePath("../Player")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
