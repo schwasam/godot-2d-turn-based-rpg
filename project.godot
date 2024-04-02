@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="2D Turn-Based RPG"
+run/main_scene="res://battle_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.431373, 0.117647, 0.552941, 1)
