@@ -10,6 +10,6 @@ config_version=5
 
 [application]
 
-config/name="3D Turn-Based RPG"
+config/name="2D Turn-Based RPG"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
