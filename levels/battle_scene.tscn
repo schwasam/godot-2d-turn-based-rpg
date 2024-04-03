@@ -26,7 +26,7 @@ opponent = NodePath("../Enemy")
 [node name="Enemy" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("2_7mnls")]
 position = Vector2(250, 0)
 visual = ExtResource("4_hg5f5")
-combat_actions = Array[Resource("res://actions/combat_action.gd")]([ExtResource("4_t13wk"), ExtResource("5_hrv8k")])
+combat_actions = Array[Resource("res://actions/combat_action.gd")]([ExtResource("5_hrv8k"), ExtResource("4_t13wk")])
 opponent = NodePath("../Player")
 
 [node name="Camera" type="Camera2D" parent="."]

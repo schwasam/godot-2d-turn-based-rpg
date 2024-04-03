@@ -42,7 +42,8 @@ func _update_health_bar() -> void:
 	health_text.text = str(current_hp, " / ", max_hp)
 
 func _on_character_begin_turn(character: Character) -> void:
-	pass
+	if character == self and not is_player:
+		_decide_combat_action()
 
 func cast_combat_action(action: CombatAction) -> void:
 	if action.damage > 0:
@@ -51,3 +52,17 @@ func cast_combat_action(action: CombatAction) -> void:
 		heal(action.heal)
 
 	turn_manager.end_current_turn()
+
+func _decide_combat_action():
+	var health_percent = float(current_hp) / float(max_hp)
+
+	for action in combat_actions:
+		if action.heal > 0:
+			if randf() > (health_percent + 0.2):
+				cast_combat_action(action)
+				return
+			else:
+				continue
+		else:
+			cast_combat_action(action)
+			return
